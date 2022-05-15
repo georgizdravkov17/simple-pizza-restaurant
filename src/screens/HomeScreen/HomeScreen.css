@@ -1,0 +1,12 @@
+.home-screen{
+    text-align: center;
+}
+
+.home-screen .container{
+    padding: 1rem;
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    flex-wrap: wrap;
+}
