@@ -12,6 +12,7 @@ class Service {
   getLimitedCount(limit){
       return axios.get(this.apiUrl, { params: { _limit: limit } });
   }
+
 }
 
 export default Service;

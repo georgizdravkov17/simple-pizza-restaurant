@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstrap';
-import PizzaLogo from '../../assets/pizzaLogo.png';
+import { logo } from '../../assets/assets.js';
 import './Header.css';
 
 const Header = () => {
+
+
   return(
     <Navbar bg="dark" variant="dark" expand="lg">
     <Container fluid>
-      <Navbar.Brand as={Link} to="/"><img className="logo" src={PizzaLogo}/></Navbar.Brand>
+      <Navbar.Brand as={Link} to="/"><img className="logo" src={logo}/></Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import { HomeScreen, MenuScreen, AboutScreen, ContactScreen, NotFoundScreen } from './screens/screens.js';
-import { Header, Footer } from './components/components';
+import { Header, Footer, NewsLetter } from './components/components';
 import './App.css';
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
            <Route exact path="/contact" element={<ContactScreen />} />
            <Route path="/*" element={<NotFoundScreen />} />
         </Routes>
+        <NewsLetter />
         <Footer />
     </div>
     </Router>

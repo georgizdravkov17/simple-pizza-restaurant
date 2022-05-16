@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Service from '../../helpers/ServiceClass';
 import { pizzasUrl, saladsUrl, drinksUrl } from '../../helpers/constants';
+import { printCollection } from '../../helpers/functions';
 import { ProductCard, HeaderSection } from '../../components/components.js';
 import './MenuScreen.css';
 
@@ -40,35 +41,38 @@ const MenuScreen = () => {
     })
 
   }, [])
-
-  const printPizzas = () => {
-    return pizzas.map(({id, img, name, price, description}) => <ProductCard key={id} id={id} img={img} name={name} price={price} description={description}/>)
-  }
-
-  const printSalads = () => {
-    return salads.map(({id, img, name, price, description}) => <ProductCard key={id} id={id} img={img} name={name} price={price} description={description}/> )
-  }
-
-  const printDrinks = () => {
-    return drinks.map(({id, img, name, price, description}) => <ProductCard key={id} id={id} img={img} name={name} price={price} description={description}/> )
-  }
-
-
+ 
 
   return(
       <div className="menu-screen">
           <HeaderSection />
-          <h1 className="heading">Menu Page</h1>
-          <button onClick={() => { console.log(salads); }}>Show salads</button>
-          <div className="pizzas-container container">
-              {printPizzas()}
+           <div className="parent">
+           <h1 className="heading">Menu Page</h1>
+              <div className="wrapper box-shadow">
+                <div className="upper">
+                    <h1 className="heading">Pizzas</h1>
+                </div>
+              <div className="pizzas-container container">
+                  {printCollection(pizzas, ProductCard)}
+              </div>
+             </div> 
+              <div className="wrapper box-shadow">
+                <div className="upper">
+                    <h1 className="heading">Salads</h1>
+                </div>
+              <div className="salads-container container">
+              {printCollection(salads, ProductCard)}
+              </div>
+            </div>
+              <div className="wrapper box-shadow">
+                <div className="upper">
+                    <h1 className="heading">Drinks</h1>
+                </div>
+              <div className="drinks-container container">
+              {printCollection(drinks, ProductCard)}
+              </div>
           </div>
-          <div className="salads-container container">
-              {printSalads()}
-          </div>
-          <div className="drinks-container container">
-             {printDrinks()}
-          </div>
+      </div>
       </div>
   );
 }

@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { HeaderSection, ProductCard } from '../../components/components.js';
+import { useNavigate } from 'react-router-dom';
+import { HeaderSection, ProductCard, Banner } from '../../components/components.js';
 import Service from '../../helpers/ServiceClass';
+import { Button } from 'react-bootstrap';
 import { pizzasUrl, saladsUrl, drinksUrl } from '../../helpers/constants';
+import { printCollection } from '../../helpers/functions';
 import './HomeScreen.css';
 
 const HomeScreen = () => {
+
+  const navigate = useNavigate();
 
    const [pizzas, setPizzas] = useState([]);
    const [salads, setSalads] = useState([]);
@@ -41,31 +46,42 @@ const HomeScreen = () => {
 
    }, [])
 
-   const printPizzas = () => {
-    return pizzas.map(({id, img, name, price, description}) => <ProductCard key={id} id={id} img={img} name={name} price={price} description={description}/>)
-  }
-
-  const printSalads = () => {
-    return salads.map(({id, img, name, price, description}) => <ProductCard key={id} id={id} img={img} name={name} price={price} description={description}/>)
-  }
-
-  const printDrinks = () => {
-    return drinks.map(({id, img, name, price, description}) => <ProductCard key={id} id={id} img={img} name={name} price={price} description={description}/>)
-  }
 
   return(
       <div className="home-screen">
         <HeaderSection />
-          <h1 className="heading">Welcome to Domino Pizza Restaurant!</h1>
-          <div className="pizzas-container container">
-              {printPizzas()}
+        <Banner />
+         <div className="parent">
+         <h1 className="heading">Welcome to Domino Pizza Restaurant!</h1>
+           <div className="wrapper box-shadow">
+             <div className="upper">
+                 <h1 className="heading">Pizzas</h1>
+                  <Button variant="primary" onClick={() => { navigate("/menu") }}>See more...</Button>
+             </div>
+           <div className="pizzas-container container">
+              {printCollection(pizzas, ProductCard)}
           </div>
-          <div className="salads-container container">
-              {printSalads()}
+           </div>
+           <div className="wrapper box-shadow">
+             <div className="upper">
+                 <h1 className="heading">Salads</h1>
+                  <Button variant="primary" onClick={() => { navigate("/menu") }}>See more...</Button>
+             </div>
+           <div className="salads-container container">
+              {printCollection(salads, ProductCard)}
           </div>
-          <div className="drinks-container container">
-              {printDrinks()}
+           </div>
+           <div className="wrapper box-shadow">
+             <div className="upper">
+                 <h1 className="heading">Drinks</h1>
+                  <Button variant="primary" onClick={() => { navigate("/menu") }}>See more...</Button>
+             </div>
+           <div className="drinks-container container">
+              {printCollection(drinks, ProductCard)}
           </div>
+           </div>
+         </div>
+          
       </div>
   );
 }

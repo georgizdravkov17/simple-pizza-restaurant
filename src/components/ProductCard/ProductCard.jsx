@@ -4,7 +4,7 @@ import './ProductCard.css';
 
 const ProductCard = ({id, img, name, price, description}) => {
   return(
-    <Card className="card box-shadow" style={{ width: '18rem' }}>
+    <Card className="card box-shadow" style={{ width: '15rem' }}>
     <Card.Img variant="top" src={img} />
     <Card.Body>
       <Card.Title>{name}</Card.Title>

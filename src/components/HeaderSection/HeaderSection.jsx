@@ -1,11 +1,11 @@
 import React from 'react';
 import './HeaderSection.css';
-import img from '../../assets/multiplePizzas.jpeg';
+import { img8 } from '../../assets/assets.js';
 
 const HeaderSection = () => {
     return(
-        <div className="header-section">
-             <img src={img}></img>
+        <div className="header-section box-shadow">
+             <img src={img8}></img>
         </div>
     );
 }

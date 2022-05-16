@@ -6,7 +6,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { HeaderSection } from '../../components/components.js';
 import { messageSchema } from '../../validations/messageValidation';
 import { Button } from 'react-bootstrap';
-import img from '../../assets/pizzaLeft.jpg';
+import { img3 } from '../../assets/assets.js';
 import './ContactScreen.css';
 
 const initialValues = {
@@ -31,7 +31,7 @@ const ContactScreen = () => {
   return(
       <div className="contact-screen">
           <div className="img">
-             <img src={img} alt="Pizza" />
+             <img src={img3} alt="Pizza" />
           </div>
           <div className="info">
               <h2 className="heading">Contact Us</h2>
